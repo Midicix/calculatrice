@@ -310,6 +310,7 @@ def ajoutplus():
         compteur_virgule = 0
     variable = float(resultat)
     var_stock = variable
+    #print("ici",variable)
     resultat = ""
     Visuel.config(text = "")
     var_plus += 1
@@ -389,44 +390,31 @@ def ajoutegal():
         resultat = D(str(variable)) + D(str(variable1))
         var_plus = 0
         compteur_virgule = 0
-        ajoutresultat(resultat)
     if var_moins == 1 :
         resultat = D(str(variable)) - D(str(variable1))
         var_moins = 0
         compteur_virgule = 0
-        ajoutresultat(resultat)
     if var_diviser == 1 :
         resultat = D(str(variable)) / D(str(variable1))
         var_diviser = 0
         compteur_virgule = 0
-        ajoutresultat(resultat)
     if var_fois == 1 :
         resultat = D(str(variable)) * D(str(variable1))
         var_fois = 0
         compteur_virgule = 0
+    if resultat == str(301204) :
         ajoutresultat(resultat)
-    if easter_egg == 2 :
-        Visuel.config(text = "OWO")
-    if resultat == str(69420) :
         easter_egg += 1
-        Visuel.config(text = "UWU")
-        resultat = str(69420)
-    if easter_egg == 1:
-        easter_egg += 1
-        Visuel.config(text = "OWO")
-    if easter_egg == 2 :
-        easter_egg = 1
+    ajoutresultat(resultat)
 
 def ajoutresultat(resultat):
     global easter_egg, var_pi
     if var_pi == 1:
         Visuel.config(text = resultat)
-    if easter_egg > 0 :
-        if easter_egg == 2 :
-            easter_egg = 0
-            Visuel.config(text = "OWO")
-        if easter_egg == 1 :
-            Visuel.config(text = "UWU")
+        #print("oui")
+    if easter_egg == 1 :
+        easter_egg = 0
+        Visuel.config(text = "UWU")
     else :
         if var_pi == 0 :
             Visuel.config(text = float(resultat))
@@ -436,13 +424,15 @@ def ajoutvirgule():
     global compteur_virgule, variable
     if compteur_virgule == 0 :
         variable = float(resultat)
+        #print(float(variable))
         variable = str(variable)
+        #print(str(variable))
         """variable += "."""
+        #print(str(variable))
         compteur_virgule += 1
 
 def reset():
     global resultat, variable, variable1, var_plus, var_moins, var_fois, var_diviser, compteur_virgule
-    resultat = str(resultat)
     resultat = ""
     variable = 0
     variable1 = 0
@@ -451,7 +441,6 @@ def reset():
     var_fois = 0
     var_diviser = 0
     compteur_virgule = 0
-    easter_egg = 0
     Visuel.config(text = "")
 
 ##########################################
